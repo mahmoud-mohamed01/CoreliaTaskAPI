@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api")
 @AllArgsConstructor
 public class CourseCategoryController{
-    CourseCategoryService courseCategoryService;
+    private CourseCategoryService courseCategoryService;
 
     @PostMapping("/admin/categories")
     public ResponseEntity<RespnseMessage> createCategory(@RequestBody CourseCategory category){
@@ -49,12 +49,6 @@ public class CourseCategoryController{
         RespnseMessage message=courseCategoryService.updateCategory(id,category);
         return new ResponseEntity<>(message,HttpStatus.OK);
     }
-
-
-
-
-
-
 
 
 

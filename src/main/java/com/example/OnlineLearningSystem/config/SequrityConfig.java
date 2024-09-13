@@ -34,9 +34,10 @@ public class SequrityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/login/**","/register/**","/api/public/**")
+                        req->req.requestMatchers("/api/login/**","/api/register/**","/api/public/**")
                                 .permitAll()
                                 .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api/courses/**").hasAnyAuthority("ADMIN","INSTRUCTOR")
                                 .anyRequest()
                                 .authenticated()
                 ).userDetailsService(userDetailsServiceImp)

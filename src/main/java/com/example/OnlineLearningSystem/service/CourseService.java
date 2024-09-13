@@ -7,9 +7,9 @@ import com.example.OnlineLearningSystem.model.CourseCategory;
 import java.util.List;
 
 public interface CourseService {
-    RespnseMessage createCourse(Course course);
+    RespnseMessage createCourse(Course course,String instructor_id,String category_id);
     List<Course> getCourses();
     Course getCourse(int id);
-    RespnseMessage updateCourse(int id,Course course);
-    RespnseMessage deleteCourse(int id);
+    RespnseMessage updateCourse(int id,Course course,String instructor_id,String category_id);
+    RespnseMessage deleteCourse(int id,String instructor_id);
 }
