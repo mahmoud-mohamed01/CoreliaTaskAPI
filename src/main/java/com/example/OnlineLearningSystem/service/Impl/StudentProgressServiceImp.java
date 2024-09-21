@@ -26,7 +26,7 @@ public class StudentProgressServiceImp implements StudentProgressService {
                 .orElseThrow(()->new NotFoundException());
 
         StudentProgress studentProgress=new StudentProgress();
-        studentProgress.setLesson_id(lesson);
+        studentProgress.setLessonId(lesson);
         studentProgress.setStudentId(student);
         studentProgressRepository.save(studentProgress);
         return new RespnseMessage("progress saved");

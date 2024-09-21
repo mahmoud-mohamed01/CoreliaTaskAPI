@@ -1,5 +1,6 @@
 package com.example.OnlineLearningSystem.service.Impl;
 
+import com.example.OnlineLearningSystem.exception.BadRequestException;
 import com.example.OnlineLearningSystem.model.Token;
 import com.example.OnlineLearningSystem.model.User;
 import com.example.OnlineLearningSystem.repository.UserRepository;
@@ -58,7 +59,7 @@ public class AuthService {
 
         }
         catch (BadCredentialsException e){
-            return new Token(null,e.getMessage());
+           throw new BadRequestException("bad credentials");
         }
 
 

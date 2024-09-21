@@ -20,11 +20,10 @@ public class QuizQuestionServiceImp implements QuizQuestionService {
     public RespnseMessage createQuestion(QuizQuestion request,String quizId) {
         Quiz quiz=quizRepository.findById(Integer.parseInt(quizId))
                 .orElseThrow(()->new NotFoundException());
-
         QuizQuestion question=new QuizQuestion();
         question.setQuestion(request.getQuestion());
         question.setQuiz(quiz);
-
+        quizQuestionRepostiory.save(question);
         return new RespnseMessage("question added");
     }
 

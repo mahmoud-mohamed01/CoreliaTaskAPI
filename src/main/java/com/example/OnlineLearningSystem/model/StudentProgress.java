@@ -23,7 +23,7 @@ public class StudentProgress {
     @Id
     @ManyToOne
     @JoinColumn(name = "lesson_id", referencedColumnName = "id")
-    private Lesson lesson_id;
+    private Lesson lessonId;
 
     @CreationTimestamp
     @CreatedDate

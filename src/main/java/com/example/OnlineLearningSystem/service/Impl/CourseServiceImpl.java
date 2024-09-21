@@ -36,7 +36,7 @@ public class CourseServiceImpl implements CourseService {
         CourseCategory category= courseCategoryRepository.findById(Integer.parseInt(category_id))
                 .orElseThrow(()->new NotFoundException("no category with id:"+category_id));
         course.setCourseCategory(category);
-
+        courseRepository.save(course);
         return new RespnseMessage("course created successfully");
     }
 
@@ -70,6 +70,7 @@ public class CourseServiceImpl implements CourseService {
         course.setDescription(request.getDescription()!=null? request.getDescription():course.getDescription());
         course.setPrice(request.getPrice()!=0? request.getPrice():course.getPrice());
         course.setCourseCategory(category_id!=null? category:course.getCourseCategory());
+        courseRepository.save(course);
         return new RespnseMessage("course updated successfully");
     }
 
@@ -80,6 +81,7 @@ public class CourseServiceImpl implements CourseService {
         if(course.getInstructor().getId()!=Integer.parseInt(instructor_id)){
             throw new BadRequestException("not matching instructor id");
         }
+        courseRepository.delete(course);
         return new RespnseMessage("course deleted successfully");
     }
 }

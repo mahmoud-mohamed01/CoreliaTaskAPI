@@ -3,6 +3,7 @@ package com.example.OnlineLearningSystem.controller;
 import com.example.OnlineLearningSystem.dto.RespnseMessage;
 import com.example.OnlineLearningSystem.exception.BadRequestException;
 import com.example.OnlineLearningSystem.exception.NotFoundException;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,5 +25,7 @@ public class ExceptionController {
         errorMessage.setMessage(badRequestException.getMessage());
         return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
+
+
 
 }

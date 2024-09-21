@@ -37,6 +37,7 @@ public class SequrityConfig {
                         req->req.requestMatchers("/api/login/**","/api/register/**","/api/public/**")
                                 .permitAll()
                                 .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api/student/**").hasAuthority("STUDENT")
                                 .requestMatchers("/api/courses/**").hasAnyAuthority("ADMIN","INSTRUCTOR")
                                 .anyRequest()
                                 .authenticated()

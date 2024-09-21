@@ -29,7 +29,7 @@ public class LessonServiceImpl implements LessonService {
         lesson.setVideoUrl(request.getVideoUrl());
         lesson.setResoursesUrl(request.getResoursesUrl());
         lesson.setSection(section);
-
+        lessonRepository.save(lesson);
         return new RespnseMessage("lesson created");
     }
 
@@ -55,7 +55,7 @@ public class LessonServiceImpl implements LessonService {
         lesson.setLessonName(request.getLessonName()!=null? request.getLessonName() : lesson.getLessonName() );
         lesson.setResoursesUrl(request.getResoursesUrl()!=null? request.getResoursesUrl() : lesson.getResoursesUrl() );
         lesson.setVideoUrl(request.getVideoUrl()!=null? request.getVideoUrl() : lesson.getVideoUrl() );
-
+        lessonRepository.save(lesson);
         return new RespnseMessage("lesson updated");
     }
 

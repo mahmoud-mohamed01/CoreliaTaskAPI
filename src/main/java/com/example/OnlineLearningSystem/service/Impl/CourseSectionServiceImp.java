@@ -26,7 +26,8 @@ public class CourseSectionServiceImp implements CourseSectionService {
         courseSection.setSectionName(request.getSectionName());
         courseSection.setSectionNumber(request.getSectionNumber());
         courseSection.setCourse(course);
-        return new RespnseMessage("Course Created successfully");
+        courseSectionRepository.save(courseSection);
+        return new RespnseMessage("Course section created successfully");
     }
 
     @Override
@@ -49,6 +50,7 @@ public class CourseSectionServiceImp implements CourseSectionService {
 
        courseSection.setSectionName(request.getSectionName()!=null?request.getSectionName():courseSection.getSectionName());
        courseSection.setSectionNumber(request.getSectionNumber()!=0?request.getSectionNumber():courseSection.getSectionNumber());
+       courseSectionRepository.save(courseSection);
         return  new RespnseMessage("section updated");
     }
 

@@ -27,6 +27,7 @@ public class QuizServiceImpl implements QuizService {
         quiz.setNumber(request.getNumber());
         quiz.setMinScore(request.getMinScore());
         quiz.setCourse(course);
+        quizRepository.save(quiz);
         return new RespnseMessage("quiz created for course with id:"+courseId);
     }
 
